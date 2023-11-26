@@ -79,6 +79,7 @@ export class App extends Component {
 
   render() {
     const { images, loadMore, loading, showModal, selectedImage } = this.state;
+
     return (
       <div className={styles.App}>
         <Searchbar onSubmit={this.addValue} />
