@@ -5,21 +5,22 @@ import styles from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = props => {
+  const { onClose } = props;
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        props.onClose();
+        onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [props]);
+  }, [onClose]);
 
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
-      props.onClose();
+      onClose();
     }
   };
 
